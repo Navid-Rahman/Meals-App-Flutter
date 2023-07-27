@@ -40,4 +40,6 @@ class Meal {
   final bool isVegetarian;
   final List<String> steps;
   final String title;
+
+  static const int numberID = 1000;
 }
