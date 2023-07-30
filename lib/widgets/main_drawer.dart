@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:meals_app/utils/theme_data.dart';
 
 class MainDrawer extends StatelessWidget {
   const MainDrawer({super.key});
@@ -38,11 +37,15 @@ class MainDrawer extends StatelessWidget {
                   'Cooking up!',
                   style: Theme.of(context).textTheme.titleLarge!.copyWith(
                         color: Theme.of(context).colorScheme.primary,
+                        fontSize: 24,
                       ),
                 )
               ],
             ),
           ),
+
+          //! Update the Drawer_Item menu bar for each ListTile
+
           ListTile(
             leading: Icon(
               Icons.restaurant,
@@ -53,7 +56,25 @@ class MainDrawer extends StatelessWidget {
               'Meals',
               style: Theme.of(context).textTheme.titleSmall!.copyWith(
                     color: Theme.of(context).colorScheme.onBackground,
-                    fontSize: 24,
+                    fontSize: 20,
+                  ),
+            ),
+            onTap: () {},
+          ),
+
+          //! Update the Drawer_Item menu bar for each ListTile
+
+          ListTile(
+            leading: Icon(
+              Icons.settings,
+              size: 28,
+              color: Theme.of(context).colorScheme.onBackground,
+            ),
+            title: Text(
+              'Filters',
+              style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                    color: Theme.of(context).colorScheme.onBackground,
+                    fontSize: 20,
                   ),
             ),
             onTap: () {},
