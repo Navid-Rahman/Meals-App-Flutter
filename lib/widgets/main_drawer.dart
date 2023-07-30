@@ -1,7 +1,13 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
 class MainDrawer extends StatelessWidget {
-  const MainDrawer({super.key});
+  const MainDrawer({
+    Key? key,
+    required this.onSelectScreen,
+  }) : super(key: key);
+
+  final void Function(String identifier) onSelectScreen;
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +65,9 @@ class MainDrawer extends StatelessWidget {
                     fontSize: 20,
                   ),
             ),
-            onTap: () {},
+            onTap: () {
+              onSelectScreen('meals');
+            },
           ),
 
           //! Update the Drawer_Item menu bar for each ListTile
@@ -77,7 +85,9 @@ class MainDrawer extends StatelessWidget {
                     fontSize: 20,
                   ),
             ),
-            onTap: () {},
+            onTap: () {
+              onSelectScreen('filters');
+            },
           ),
         ],
       ),
