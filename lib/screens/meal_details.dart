@@ -40,52 +40,55 @@ class MealDetailsScreen extends StatelessWidget {
             const SizedBox(
               height: 12,
             ),
-            const Text(
+            Text(
               'Ingredients',
-              style: TextStyle(
-                color: Color.fromARGB(255, 245, 166, 69),
-                fontSize: 24,
-              ),
+              style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                    color: Theme.of(context).colorScheme.primary,
+                    fontSize: 24,
+                  ),
             ),
             const SizedBox(
               height: 12,
             ),
-            Column(
-              children: meal.ingredients.map((ingredient) {
-                return Column(
-                  children: [
-                    Text(
-                      ingredient,
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                children: meal.ingredients.map((ingredient) {
+                  return Column(
+                    children: [
+                      Text(
+                        ingredient,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                        ),
                       ),
-                    ),
-                    const SizedBox(
-                      height: 8,
-                    ),
-                  ],
-                );
-              }).toList(),
-            ),
-            const SizedBox(
-              height: 12,
-            ),
-            const Text(
-              'Steps',
-              style: TextStyle(
-                color: Color.fromARGB(255, 245, 166, 69),
-                fontSize: 24,
+                      const SizedBox(
+                        height: 8,
+                      ),
+                    ],
+                  );
+                }).toList(),
               ),
             ),
             const SizedBox(
               height: 12,
             ),
-            Column(
-              children: meal.steps.map((step) {
-                return Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
+            Text(
+              'Steps',
+              style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                    color: Theme.of(context).colorScheme.primary,
+                    fontSize: 24,
+                  ),
+            ),
+            const SizedBox(
+              height: 12,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                children: meal.steps.map((step) {
+                  return Column(
                     children: [
                       Text(
                         step,
@@ -99,9 +102,9 @@ class MealDetailsScreen extends StatelessWidget {
                         height: 8,
                       ),
                     ],
-                  ),
-                );
-              }).toList(),
+                  );
+                }).toList(),
+              ),
             )
           ],
         ),
