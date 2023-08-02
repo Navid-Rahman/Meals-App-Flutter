@@ -2,9 +2,22 @@
 Meals App is a Flutter application that allows users to browse different categories of meals and view their recipes. Users can also filter meals based on their dietary preferences. This app serves as a basic example of using Flutter with Riverpod for state management.
 
 ## Screenshots
-Screenshot 1
-Screenshot 2
-Screenshot 3
+- Screenshot 1
+  ![Simulator_Screenshot_-_iPhone_14_Pro_Max_-_2023-08-02_at_16 53 12_60](https://github.com/Navid-Rahman/Meals-App-Flutter/assets/77515075/88c0d1f4-9914-4886-af01-b731ebe185b6)
+
+- Screenshot 2
+  ![Simulator_Screenshot_-_iPhone_14_Pro_Max_-_2023-08-02_at_16 53 18_60](https://github.com/Navid-Rahman/Meals-App-Flutter/assets/77515075/50f3b8eb-8c45-46d2-ab34-aa554e3ee594)
+
+- Screenshot 3
+![Simulator_Screenshot_-_iPhone_14_Pro_Max_-_2023-08-02_at_16 53 46_60](https://github.com/Navid-Rahman/Meals-App-Flutter/assets/77515075/c16cfa02-91b7-4906-bdcf-0661cb852004)
+
+- Screenshot 4
+  ![Simulator_Screenshot_-_iPhone_14_Pro_Max_-_2023-08-02_at_16 54 01_60](https://github.com/Navid-Rahman/Meals-App-Flutter/assets/77515075/3e99935a-dfa4-4b35-9b04-c2a7933541cf)
+
+- Screenshot 5
+  ![Simulator_Screenshot_-_iPhone_14_Pro_Max_-_2023-08-02_at_17 00 50_60](https://github.com/Navid-Rahman/Meals-App-Flutter/assets/77515075/064a8013-eaee-4386-9da2-7e93a7602c93)
+
+
 
 ## Getting Started
 To run this project, make sure you have Flutter installed on your system. Then, follow these steps:
@@ -38,7 +51,7 @@ The app uses dummy data for demonstration purposes. In a real-world scenario, th
 ## State Management
 The app uses Riverpod for state management, with the following providers:
 
-- **favouriteMealsProvider**: Manages the list of user-favourite meals.
+- **favouriteMealsProvider**: Manages the list of user-favorite meals.
 - **filtersProvider**: Manages the selected meal filters.
 - **mealsProvider**: Provides the list of meals available in the app.
 - **filteredMealProvider**: Provides the filtered list of meals based on the selected filters.
@@ -53,6 +66,4 @@ The Meals App is inspired by the Flutter Udemy course by Maximilian Schwarzmüll
 The sample data used in the app is from MealsDB, an open-source database of meal recipes.
 
 ## Contact
-For more information or questions, feel free to contact:
-
-Your Name: navidrahman92@gmail.com
+For more information or questions, feel free to contact: navidrahman92@gmail.com
