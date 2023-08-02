@@ -26,11 +26,11 @@ To run this project, make sure you have Flutter installed on your system. Then, 
 ## Code Overview
 The project is organized into different files and folders:
 
-- 'lib/models': Contains data models for Category, Meal, Complexity, and Affordability.
-- lib/provider: Contains state management using Riverpod.
-- lib/widgets: Contains custom widgets used in the app.
-- lib/data/dummy_data.dart: Contains dummy data for categories and meals.
-- lib/main.dart: The entry point of the app.
+- **lib/models**: Contains data models for Category, Meal, Complexity, and Affordability.
+- **lib/provider**: Contains state management using Riverpod.
+- **lib/widgets**: Contains custom widgets used in the app.
+- **lib/data/dummy_data.dart**: Contains dummy data for categories and meals.
+- **lib/main.dart**: The entry point of the app.
 
 ## Data Source
 The app uses dummy data for demonstration purposes. In a real-world scenario, this data would typically be fetched from an API or database.
@@ -38,10 +38,10 @@ The app uses dummy data for demonstration purposes. In a real-world scenario, th
 ## State Management
 The app uses Riverpod for state management, with the following providers:
 
-- favouriteMealsProvider: Manages the list of user-favourite meals.
-- filtersProvider: Manages the selected meal filters.
-- mealsProvider: Provides the list of meals available in the app.
-- filteredMealProvider: Provides the filtered list of meals based on the selected filters.
+- **favouriteMealsProvider**: Manages the list of user-favourite meals.
+- **filtersProvider**: Manages the selected meal filters.
+- **mealsProvider**: Provides the list of meals available in the app.
+- **filteredMealProvider**: Provides the filtered list of meals based on the selected filters.
 
 ## Contributing
 Contributions are welcome! If you find any bugs or have suggestions for improvements, please open an issue or submit a pull request.
