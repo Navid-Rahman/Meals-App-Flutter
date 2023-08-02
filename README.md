@@ -47,7 +47,7 @@ The app uses Riverpod for state management, with the following providers:
 Contributions are welcome! If you find any bugs or have suggestions for improvements, please open an issue or submit a pull request.
 
 ## Acknowledgments
-The Meals App is inspired by the Flutter Udemy course by Maximilian Schwarzmüller.
+The Meals App is inspired by the Flutter Udemy course by **Maximilian Schwarzmüller**.
 
 ## Credits
 The sample data used in the app is from MealsDB, an open-source database of meal recipes.
