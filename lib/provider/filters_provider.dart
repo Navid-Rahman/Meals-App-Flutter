@@ -10,12 +10,14 @@ enum Filter {
 
 class FiltersNotifier extends StateNotifier<Map<Filter, bool>> {
   FiltersNotifier()
-      : super({
-          Filter.glutenFree: false,
-          Filter.lactoseFree: false,
-          Filter.vegetarian: false,
-          Filter.vegan: false,
-        });
+      : super(
+          {
+            Filter.glutenFree: false,
+            Filter.lactoseFree: false,
+            Filter.vegetarian: false,
+            Filter.vegan: false,
+          },
+        );
 
   void setFilters(Map<Filter, bool> chosenFilters) {
     state = chosenFilters;
@@ -34,25 +36,27 @@ final filtersProvider =
   (ref) => FiltersNotifier(),
 );
 
-final filteredMealProvider = Provider((ref) {
-  final meals = ref.watch(mealsProvider);
-  final activeFilters = ref.watch(filtersProvider);
+final filteredMealProvider = Provider(
+  (ref) {
+    final meals = ref.watch(mealsProvider);
+    final activeFilters = ref.watch(filtersProvider);
 
-  meals.where(
-    (meal) {
-      if (activeFilters[Filter.glutenFree]! && !meal.isGlutenFree) {
-        return false;
-      }
-      if (activeFilters[Filter.lactoseFree]! && !meal.isLactoseFree) {
-        return false;
-      }
-      if (activeFilters[Filter.vegetarian]! && !meal.isVegetarian) {
-        return false;
-      }
-      if (activeFilters[Filter.vegan]! && !meal.isVegan) {
-        return false;
-      }
-      return true;
-    },
-  ).toList();
-});
+    meals.where(
+      (meal) {
+        if (activeFilters[Filter.glutenFree]! && !meal.isGlutenFree) {
+          return false;
+        }
+        if (activeFilters[Filter.lactoseFree]! && !meal.isLactoseFree) {
+          return false;
+        }
+        if (activeFilters[Filter.vegetarian]! && !meal.isVegetarian) {
+          return false;
+        }
+        if (activeFilters[Filter.vegan]! && !meal.isVegan) {
+          return false;
+        }
+        return true;
+      },
+    ).toList();
+  },
+);

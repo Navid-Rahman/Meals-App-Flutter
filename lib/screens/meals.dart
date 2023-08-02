@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
 import 'package:meals_app/models/meal.dart';
@@ -11,18 +10,15 @@ class MealsScreen extends StatelessWidget {
     required this.meals,
     this.title,
     required void Function(Meal meal) onToggleFavorite,
-    // required this.onToggleFavourite,
   }) : super(key: key);
 
   final List<Meal> meals;
   final String? title;
-  // final void Function(Meal meal) onToggleFavourite;
 
   void selectMeal(Meal meal, BuildContext context) {
     Navigator.of(context).push(MaterialPageRoute(
       builder: (context) => MealDetailsScreen(
         meal: meal,
-        // onToggleFavourite: onToggleFavourite,
       ),
     ));
   }

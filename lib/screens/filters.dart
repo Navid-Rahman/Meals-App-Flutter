@@ -1,8 +1,6 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meals_app/provider/filters_provider.dart';
-// import 'package:meals_app/widgets/main_drawer.dart';
 
 class FilterScreen extends ConsumerStatefulWidget {
   const FilterScreen({
@@ -37,18 +35,6 @@ class _FilterScreenState extends ConsumerState<FilterScreen> {
       appBar: AppBar(
         title: const Text('Your filters'),
       ),
-      // drawer: MainDrawer(
-      //   onSelectScreen: (identifier) {
-      //     Navigator.of(context).pop();
-      //     if (identifier == 'meals') {
-      //       Navigator.of(context).pushReplacement(
-      //         MaterialPageRoute(
-      //           builder: (context) => const TabsScreen(),
-      //         ),
-      //       );
-      //     }
-      //   },
-      // ),
       body: WillPopScope(
         onWillPop: () async {
           Navigator.of(context).pop({
@@ -61,7 +47,7 @@ class _FilterScreenState extends ConsumerState<FilterScreen> {
         },
         child: Column(
           children: [
-            //! Outsource this code
+            //! Outsource this repeating codes
             SwitchListTile(
               value: _glutenFreeFilteredSet,
               onChanged: (isChecked) {
@@ -87,8 +73,6 @@ class _FilterScreenState extends ConsumerState<FilterScreen> {
                 right: 22,
               ),
             ),
-
-            //! Outsource this code
             SwitchListTile(
               value: _lactoseFreeFilteredSet,
               onChanged: (isChecked) {
@@ -114,8 +98,6 @@ class _FilterScreenState extends ConsumerState<FilterScreen> {
                 right: 22,
               ),
             ),
-
-            //! Outsource this code
             SwitchListTile(
               value: _vegetarianFreeFilteredSet,
               onChanged: (isChecked) {
@@ -141,8 +123,6 @@ class _FilterScreenState extends ConsumerState<FilterScreen> {
                 right: 22,
               ),
             ),
-
-            //! Outsource this code
             SwitchListTile(
               value: _veganFreeFilteredSet,
               onChanged: (isChecked) {
