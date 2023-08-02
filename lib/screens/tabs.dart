@@ -7,6 +7,7 @@ import 'package:meals_app/screens/filters.dart';
 import 'package:meals_app/screens/meals.dart';
 import 'package:meals_app/widgets/main_drawer.dart';
 
+// Initial filters for the filter screen.
 const kInitialFilters = {
   Filter.glutenFree: false,
   Filter.lactoseFree: false,
@@ -14,8 +15,9 @@ const kInitialFilters = {
   Filter.vegan: false
 };
 
+// The main screen of the app that uses tabs to navigate between categories and favorites.
 class TabsScreen extends StatefulWidget {
-  const TabsScreen({super.key});
+  const TabsScreen({Key? key}) : super(key: key);
 
   @override
   State<TabsScreen> createState() {
@@ -24,10 +26,11 @@ class TabsScreen extends StatefulWidget {
 }
 
 class _TabsScreenState extends State<TabsScreen> {
-  int _selectedPageIndex = 0;
   final List<Meal> _favoriteMeals = [];
   Map<Filter, bool> _selectedFilters = kInitialFilters;
+  int _selectedPageIndex = 0;
 
+  // Shows a snackbar with the provided message.
   void _showInfoMessage(String message) {
     ScaffoldMessenger.of(context).clearSnackBars();
     ScaffoldMessenger.of(context).showSnackBar(
@@ -37,6 +40,7 @@ class _TabsScreenState extends State<TabsScreen> {
     );
   }
 
+  // Toggles the favorite status of a meal and shows a snackbar accordingly.
   void _toggleMealFavoriteStatus(Meal meal) {
     final isExisting = _favoriteMeals.contains(meal);
 
@@ -53,12 +57,14 @@ class _TabsScreenState extends State<TabsScreen> {
     }
   }
 
+  // Selects the tab page based on the index.
   void _selectPage(int index) {
     setState(() {
       _selectedPageIndex = index;
     });
   }
 
+  // Sets the screen based on the identifier.
   void _setScreen(String identifier) async {
     Navigator.of(context).pop();
     if (identifier == 'filters') {
@@ -78,6 +84,7 @@ class _TabsScreenState extends State<TabsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // Filter available meals based on selected filters.
     final availableMeals = dummyMeals.where((meal) {
       if (_selectedFilters[Filter.glutenFree]! && !meal.isGlutenFree) {
         return false;
@@ -94,6 +101,7 @@ class _TabsScreenState extends State<TabsScreen> {
       return true;
     }).toList();
 
+    // Determine the active page based on the selected tab index.
     Widget activePage = CategoriesScreen(
       onToggleFavorite: _toggleMealFavoriteStatus,
       availableMeals: availableMeals,
@@ -108,6 +116,7 @@ class _TabsScreenState extends State<TabsScreen> {
       activePageTitle = 'Your Favorites';
     }
 
+    // Build the scaffold with an AppBar, Drawer, BottomNavigationBar, and the active page.
     return Scaffold(
       appBar: AppBar(
         title: Text(activePageTitle),

@@ -61,6 +61,7 @@ class MealItem extends StatelessWidget {
                 ),
                 child: Column(
                   children: [
+                    // Meal Title
                     Text(
                       meal.title,
                       maxLines: 2,
@@ -79,7 +80,7 @@ class MealItem extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        //! Add metadata of the foods
+                        // Meal Duration
                         MealItemTrait(
                           icon: Icons.schedule,
                           label: '${meal.duration} min',
@@ -87,6 +88,7 @@ class MealItem extends StatelessWidget {
                         const SizedBox(
                           width: 12,
                         ),
+                        // Meal Complexity
                         MealItemTrait(
                           icon: Icons.work,
                           label: complexityText,
@@ -94,6 +96,7 @@ class MealItem extends StatelessWidget {
                         const SizedBox(
                           width: 12,
                         ),
+                        // Meal Affordability
                         MealItemTrait(
                           icon: Icons.attach_money,
                           label: affordabilityText,

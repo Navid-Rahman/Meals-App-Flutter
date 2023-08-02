@@ -4,6 +4,8 @@ import 'package:meals_app/models/meal.dart';
 class FavouriteMealsNotifier extends StateNotifier<List<Meal>> {
   FavouriteMealsNotifier() : super([]);
 
+  /// Toggles the favorite status of a meal.
+  /// Returns `true` if the meal is added to favorites, `false` if it's removed.
   bool toggleMealFavouriteStatus(Meal meal) {
     final mealIsFavourite = state.contains(meal);
 
@@ -17,6 +19,7 @@ class FavouriteMealsNotifier extends StateNotifier<List<Meal>> {
   }
 }
 
+/// Provider for the list of favorite meals.
 final favouriteMealsProvider =
     StateNotifierProvider<FavouriteMealsNotifier, List<Meal>>(
   (ref) {

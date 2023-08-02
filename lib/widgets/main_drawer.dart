@@ -14,6 +14,7 @@ class MainDrawer extends StatelessWidget {
     return Drawer(
       child: Column(
         children: [
+          // Drawer Header
           DrawerHeader(
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
@@ -31,6 +32,7 @@ class MainDrawer extends StatelessWidget {
             ),
             child: Row(
               children: [
+                // Icon
                 Icon(
                   Icons.fastfood,
                   size: 48,
@@ -39,9 +41,10 @@ class MainDrawer extends StatelessWidget {
                 const SizedBox(
                   width: 18,
                 ),
+                // Title
                 Text(
                   'Cooking up!',
-                  style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                  style: Theme.of(context).textTheme.headline4!.copyWith(
                         color: Theme.of(context).colorScheme.primary,
                         fontSize: 24,
                       ),
@@ -50,8 +53,7 @@ class MainDrawer extends StatelessWidget {
             ),
           ),
 
-          //! Update the Drawer_Item menu bar for each ListTile
-
+          // Drawer Item - Meals
           ListTile(
             leading: Icon(
               Icons.restaurant,
@@ -60,18 +62,18 @@ class MainDrawer extends StatelessWidget {
             ),
             title: Text(
               'Meals',
-              style: Theme.of(context).textTheme.titleSmall!.copyWith(
+              style: Theme.of(context).textTheme.headline6!.copyWith(
                     color: Theme.of(context).colorScheme.onBackground,
                     fontSize: 20,
                   ),
             ),
             onTap: () {
+              // Call the callback function with the identifier 'meals' to handle the navigation or action
               onSelectScreen('meals');
             },
           ),
 
-          //! Update the Drawer_Item menu bar for each ListTile
-
+          // Drawer Item - Filters
           ListTile(
             leading: Icon(
               Icons.settings,
@@ -80,12 +82,13 @@ class MainDrawer extends StatelessWidget {
             ),
             title: Text(
               'Filters',
-              style: Theme.of(context).textTheme.titleSmall!.copyWith(
+              style: Theme.of(context).textTheme.headline6!.copyWith(
                     color: Theme.of(context).colorScheme.onBackground,
                     fontSize: 20,
                   ),
             ),
             onTap: () {
+              // Call the callback function with the identifier 'filters' to handle the navigation or action
               onSelectScreen('filters');
             },
           ),

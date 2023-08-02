@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meals_app/models/meal.dart';
 import 'package:meals_app/provider/favourites_provider.dart';
 
+// Screen to display details of a specific meal.
 class MealDetailsScreen extends ConsumerWidget {
   const MealDetailsScreen({
     Key? key,
@@ -14,19 +15,25 @@ class MealDetailsScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    // Get the list of favorite meals from the favouriteMealsProvider using Flutter Riverpod's ref.watch().
     final favoriteMeals = ref.watch(favouriteMealsProvider);
+
+    // Check if the current meal is in the list of favorite meals to determine whether it is a favorite or not.
     final isFavorite = favoriteMeals.contains(meal);
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(meal.title),
+        title: Text(meal.title), // Display the meal title in the app bar.
         actions: [
+          // IconButton to toggle the favorite status of the meal.
           IconButton(
             onPressed: () {
+              // Toggle the meal's favorite status using the favouriteMealsProvider's notifier.
               final wasAdded = ref
                   .read(favouriteMealsProvider.notifier)
                   .toggleMealFavouriteStatus(meal);
 
+              // Show a snackbar indicating whether the meal was added or removed from favorites.
               ScaffoldMessenger.of(context).clearSnackBars();
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
@@ -38,6 +45,7 @@ class MealDetailsScreen extends ConsumerWidget {
             icon: AnimatedSwitcher(
               duration: const Duration(milliseconds: 300),
               transitionBuilder: (child, animation) {
+                // Animate the star icon with a rotation transition when the favorite status changes.
                 return RotationTransition(
                   turns: Tween<double>(
                     begin: 0.5,
@@ -48,7 +56,8 @@ class MealDetailsScreen extends ConsumerWidget {
               },
               child: Icon(
                 isFavorite ? Icons.star : Icons.star_border,
-                key: ValueKey(isFavorite),
+                key: ValueKey(
+                    isFavorite), // Use ValueKey to help Flutter animate the switch.
               ),
             ),
           ),
@@ -58,7 +67,8 @@ class MealDetailsScreen extends ConsumerWidget {
         child: Column(
           children: [
             Hero(
-              tag: meal.id,
+              tag: meal
+                  .id, // Use a unique tag for the Hero animation to match with the MealItem widget.
               child: Image.network(
                 meal.imageUrl,
                 height: 300,
@@ -70,7 +80,7 @@ class MealDetailsScreen extends ConsumerWidget {
               height: 12,
             ),
             Text(
-              'Ingredients',
+              'Ingredients', // Section title for the meal ingredients.
               style: Theme.of(context).textTheme.titleLarge!.copyWith(
                     color: Theme.of(context).colorScheme.primary,
                     fontSize: 24,
@@ -83,6 +93,7 @@ class MealDetailsScreen extends ConsumerWidget {
               padding: const EdgeInsets.all(16.0),
               child: Column(
                 children: meal.ingredients.map((ingredient) {
+                  // Display each ingredient as a Text widget.
                   return Column(
                     children: [
                       Text(
@@ -104,7 +115,7 @@ class MealDetailsScreen extends ConsumerWidget {
               height: 12,
             ),
             Text(
-              'Steps',
+              'Steps', // Section title for the meal preparation steps.
               style: Theme.of(context).textTheme.titleLarge!.copyWith(
                     color: Theme.of(context).colorScheme.primary,
                     fontSize: 24,
@@ -117,6 +128,7 @@ class MealDetailsScreen extends ConsumerWidget {
               padding: const EdgeInsets.all(16.0),
               child: Column(
                 children: meal.steps.map((step) {
+                  // Display each preparation step as a Text widget.
                   return Column(
                     children: [
                       Text(
