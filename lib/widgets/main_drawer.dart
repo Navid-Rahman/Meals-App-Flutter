@@ -43,7 +43,7 @@ class MainDrawer extends StatelessWidget {
                 ),
                 // Title
                 Text(
-                  'Cooking up!',
+                  'Cook Book',
                   style: Theme.of(context).textTheme.headlineLarge!.copyWith(
                         color: Theme.of(context).colorScheme.primary,
                         fontSize: 24,

@@ -9,7 +9,7 @@ final theme = ThemeData(
   // Creating a custom color scheme with a dark brightness.
   colorScheme: ColorScheme.fromSeed(
     brightness: Brightness.dark,
-    seedColor: const Color.fromARGB(255, 131, 57, 0),
+    seedColor: const Color.fromARGB(255, 97, 180, 196),
   ),
 
   // Using Google Fonts Lato as the default text theme.

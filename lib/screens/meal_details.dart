@@ -90,22 +90,31 @@ class MealDetailsScreen extends ConsumerWidget {
               height: 12,
             ),
             Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.only(
+                  right: 20, left: 20, bottom: 16, top: 16),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: meal.ingredients.map((ingredient) {
                   // Display each ingredient as a Text widget.
                   return Column(
                     children: [
-                      Text(
-                        ingredient,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
-                        ),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.check,
+                            color: Theme.of(context).colorScheme.primary,
+                          ),
+                          Text(
+                            ingredient,
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                            ),
+                          ),
+                        ],
                       ),
-                      const SizedBox(
-                        height: 8,
-                      ),
+                      const SizedBox(height: 20),
                     ],
                   );
                 }).toList(),
@@ -125,23 +134,42 @@ class MealDetailsScreen extends ConsumerWidget {
               height: 12,
             ),
             Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.only(
+                  right: 20, left: 20, bottom: 16, top: 16),
               child: Column(
                 children: meal.steps.map((step) {
                   // Display each preparation step as a Text widget.
                   return Column(
                     children: [
-                      Text(
-                        step,
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
-                        ),
+                      Row(
+                        children: [
+                          CircleAvatar(
+                            radius: 18,
+                            backgroundColor:
+                                Theme.of(context).colorScheme.primaryContainer,
+                            child: Text(
+                              '${meal.steps.indexOf(step) + 1}',
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 18,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                              width:
+                                  8), // Add some spacing between CircleAvatar and Text
+                          Flexible(
+                            child: Text(
+                              step,
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 18,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                      const SizedBox(
-                        height: 8,
-                      ),
+                      const SizedBox(height: 20),
                     ],
                   );
                 }).toList(),
