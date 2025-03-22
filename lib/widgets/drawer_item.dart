@@ -9,12 +9,12 @@ class DrawerItem extends StatelessWidget {
       leading: Icon(
         Icons.restaurant,
         size: 28,
-        color: Theme.of(context).colorScheme.onBackground,
+        color: Theme.of(context).colorScheme.onSurface,
       ),
       title: Text(
         'Meals',
-        style: Theme.of(context).textTheme.headline6!.copyWith(
-              color: Theme.of(context).colorScheme.onBackground,
+        style: Theme.of(context).textTheme.headlineMedium!.copyWith(
+              color: Theme.of(context).colorScheme.onSurface,
               fontSize: 24,
             ),
       ),
